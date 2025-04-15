@@ -3,122 +3,34 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Simulasi CAT Statistika SMA</title>
+  <title>Simulasi CAT</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: sans-serif;
       background: linear-gradient(to right, #2c3e50, #3498db);
-      color: #f0f0f0;
-      margin: 0;
+      color: white;
       padding: 0;
+      margin: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
     }
     h1 {
-      text-align: center;
-      padding: 20px;
+      margin: 10px;
       color: #00d1b2;
-      background-color: #1a1a1a;
-      margin: 0;
-    }
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-    .sidebar {
-      width: 25%;
-      background-color: #2e2e2e;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .main-content {
-      width: 75%;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .soal-box {
-      margin-bottom: 20px;
-    }
-    .opsi label {
-      display: block;
-      margin: 5px 0 5px 20px;
-    }
-    .soal-nav {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .soal-nav button {
-      margin: 5px;
-      width: 40px;
-      height: 40px;
-      font-weight: bold;
-      background-color: #00d1b2;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    #timer {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: #00d1b2;
-    }
-    input[type="text"] {
-      width: 80%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 4px;
-    }
-    .hidden {
-      display: none;
-    }
-    button.next-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #00d1b2;
-      color: #000;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #thankYou {
-      text-align: center;
-      padding: 40px;
-      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
-  
-<div style="text-align: center; margin-top: 20px;">
-  <img src="logo_darmajaya.png" alt="Logo Darmajaya" style="height:80px; margin-right: 40px;">
-  <img src="logo_sainsdata.png" alt="Logo Sains Data" style="height:60px;">
-</div>
+  <header>
+    <img src="logo_darmajaya.png" alt="Logo Darmajaya" style="height:80px; margin-right:40px;">
+    <img src="logo_sainsdata.png" alt="Logo Sains Data" style="height:60px;">
+    <h1>Simulasi CAT Statistika SMA</h1>
+  </header>
 
-<h1>Simulasi CAT Statistika SMA</h1>
-
-  <div id="startArea" style="padding: 30px;">
-    <label>Nama Peserta:</label><br>
-    <input type="text" id="namaPeserta" maxlength="50"><br>
-    <label>Kode Peserta:</label><br>
-    <input type="text" id="kodePeserta" maxlength="15"><br>
-    <button class="next-btn" onclick="startQuiz()">Mulai</button>
-  </div>
-
-  <div class="container hidden" id="quizContainer">
-    <div class="sidebar">
-      <div id="timer">Waktu: <span id="timeDisplay">30:00</span></div>
-      <div class="soal-nav" id="soalNav"></div>
-    </div>
-    <div class="main-content">
-      <p><strong>Nama:</strong> <span id="dispNama"></span><br>
-      <strong>Kode Peserta:</strong> <span id="dispKode"></span></p>
-      <div id="soalBox" class="soal-box"></div>
-      <button class="next-btn" onclick="nextSoal()">Berikutnya</button>
-    </div>
-  </div>
-
-  <div id="thankYou" class="hidden">
-    <p>Terima kasih telah menyelesaikan soal.</p>
+  <div id="quizContainer" style="padding: 30px;">
+    <!-- Konten soal -->
   </div>
 
   <script>
@@ -144,564 +56,392 @@
     "jawaban": "a"
   },
   {
-    "pertanyaan": "Dalam sebuah kelas, nilai ulangan memiliki Q1 = 65, Q2 = 75, dan Q3 = 85. Maka nilai IQR adalah ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 20",
-      "b. 15",
-      "c. 10",
-      "d. 25"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Data: 60, 65, 65, 70, 75, 80, 85. Modus dan median berturut-turut adalah ...",
-    "opsi": [
-      "a. 65 dan 70",
-      "b. 65 dan 75",
-      "c. 70 dan 65",
-      "d. 75 dan 70"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "Jika rata-rata dari 4 nilai adalah 82 dan tiga nilai pertama adalah 80, 85, dan 79, maka nilai keempat adalah ...",
-    "opsi": [
-      "a. 84",
-      "b. 83",
-      "c. 86",
-      "d. 84.5"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "Grafik ogive digunakan untuk menyajikan ...",
-    "opsi": [
-      "a. Frekuensi mutlak",
-      "b. Data kategorik",
-      "c. Frekuensi kumulatif",
-      "d. Diagram batang"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Suatu data distribusi normal simetris. Maka mean, median, dan modus ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. Berbeda",
-      "b. Sama",
-      "c. Tidak ada",
-      "d. Modus lebih besar"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
-    "jawaban": "b"
+    "jawaban": "a"
   },
   {
-    "pertanyaan": "Rata-rata gaji = 7.2jt. Setelah direktur 30jt keluar, rata-rata = 6jt. Banyak pegawai adalah ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 4",
-      "b. 5",
-      "c. 6",
-      "d. 7"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Dalam 100 siswa, 70 suka Matematika, 45 suka Fisika, dan 30 suka keduanya. Tidak suka keduanya ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. 15",
-      "b. 25",
-      "c. 20",
-      "d. 30"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Standar deviasi data 2,4,4,4,5,5,7,9 adalah ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. √5",
-      "b. 2",
-      "c. √6",
-      "d. 2.14"
-    ],
-    "jawaban": "d"
-  },
-  {
-    "pertanyaan": "Distribusi condong ke kiri, maka urutan mean, median, modus ...",
-    "opsi": [
-      "a. Mean > Median > Modus",
-      "b. Modus > Median > Mean",
-      "c. Median > Mean > Modus",
-      "d. Modus > Mean > Median"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Histogram digunakan untuk menyajikan ...",
-    "opsi": [
-      "a. Data kualitatif",
-      "b. Data kontinyu",
-      "c. Frekuensi kumulatif",
-      "d. Rata-rata data"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Jika variansi = 25, maka standar deviasi = ...",
-    "opsi": [
-      "a. 2.5",
-      "b. 5",
-      "c. 10",
-      "d. 7"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Koefisien korelasi Pearson X dan Y = 0.85. Maka hubungan ...",
-    "opsi": [
-      "a. Sangat kuat positif",
-      "b. Lemah",
-      "c. Negatif",
-      "d. Tidak berhubungan"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   },
   {
-    "pertanyaan": "Jika X̄ = 80 dan σ = 5, maka Z-score dari nilai 90 adalah ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 1.0",
-      "b. 2.0",
-      "c. 2.5",
-      "d. 1.5"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Sampel 9 data. Median data ke ...",
-    "opsi": [
-      "a. 4",
-      "b. 5",
-      "c. 6",
-      "d. 7"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Q3 membagi data menjadi ...",
-    "opsi": [
-      "a. 25% bawah",
-      "b. 75% bawah",
-      "c. 50%",
-      "d. 25%, 25%, 50%"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Grafik batang cocok untuk ...",
-    "opsi": [
-      "a. Hubungan variabel",
-      "b. Data interval",
-      "c. Data kategorik",
-      "d. Distribusi"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Rata-rata = 78 dan σ = 4. Nilai 70 termasuk ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. Z = -2",
-      "b. Z = -1",
-      "c. Di atas",
-      "d. Mean"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   },
   {
-    "pertanyaan": "Range = 30, maksimum = 80. Minimum adalah ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 50",
-      "b. 45",
-      "c. 55",
-      "d. 60"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "f(x) = x² - 2x + 1. Maka f(3) = ...",
-    "opsi": [
-      "a. 4",
-      "b. 2",
-      "c. 1",
-      "d. 0"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "log 2 = a, log 5 = b. Maka log 20 = ...",
-    "opsi": [
-      "a. a + b",
-      "b. 2a + b",
-      "c. a + 2b",
-      "d. 2a + 2b"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "x² - 6x + k = 0 akar kembar jika k = ...",
-    "opsi": [
-      "a. 0",
-      "b. 6",
-      "c. 9",
-      "d. 36"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Luas segitiga alas 10 cm, tinggi 12 cm ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. 120",
-      "b. 60",
-      "c. 100",
-      "d. 80"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "|2x - 4| = 6. Solusi adalah ...",
-    "opsi": [
-      "a. -1 dan 5",
-      "b. 1 dan 5",
-      "c. -5 dan 5",
-      "d. -1 dan -5"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   },
   {
-    "pertanyaan": "(2x + 4)² = ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 4x² + 8x + 16",
-      "b. 4x² + 16",
-      "c. 4x² + 16x + 16",
-      "d. 4x² + 16x + 8"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "sin²30° + cos²30° = ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. 1",
-      "b. 0",
-      "c. √3",
-      "d. 2"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   },
   {
-    "pertanyaan": "Turunan f(x) = 3x² - 2x + 5 adalah ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 6x - 2",
-      "b. 6x + 2",
-      "c. 6x - 5",
-      "d. 3x - 2"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "x : y = 4 : 5, maka (2x + 3y):(x + 2y) = ...",
-    "opsi": [
-      "a. 8 : 9",
-      "b. 10 : 11",
-      "c. 22 : 13",
-      "d. 23 : 14"
-    ],
-    "jawaban": "d"
-  },
-  {
-    "pertanyaan": "Bilangan dua angka, jumlah angka 9, dibalik lebih besar 4. Bilangan ...",
-    "opsi": [
-      "a. 36",
-      "b. 45",
-      "c. 63",
-      "d. 54"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Jika a + b = 6 dan ab = 5, maka a² + b² = ...",
-    "opsi": [
-      "a. 11",
-      "b. 26",
-      "c. 36",
-      "d. 28"
-    ],
-    "jawaban": "d"
-  },
-  {
-    "pertanyaan": "Akar dari x² + 6x + 5 = 0 ...",
-    "opsi": [
-      "a. -1 dan -5",
-      "b. 1 dan -5",
-      "c. -2 dan -3",
-      "d. 2 dan -3"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "Luas permukaan tabung r = 7, t = 10 ...",
-    "opsi": [
-      "a. 660",
-      "b. 748",
-      "c. 814",
-      "d. 968"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "sin 60° × cos 30° = ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. 3/4",
-      "b. √3/2",
-      "c. 1/2",
-      "d. 1"
-    ],
-    "jawaban": "b"
-  },
-  {
-    "pertanyaan": "Jika 2x + 3 = 17, maka x = ...",
-    "opsi": [
-      "a. 5",
-      "b. 6",
-      "c. 7",
-      "d. 8"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   },
   {
-    "pertanyaan": "Jarak A(3,4) ke B(0,0) ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 5",
-      "b. 6",
-      "c. 7",
-      "d. √25"
-    ],
-    "jawaban": "a"
-  },
-  {
-    "pertanyaan": "x² + y² = 25, x = 3, maka y = ...",
-    "opsi": [
-      "a. 3",
-      "b. 4",
-      "c. ±4",
-      "d. 5"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
     "jawaban": "c"
   },
   {
-    "pertanyaan": "Grafik y = ax² + bx + c membuka ke bawah jika ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. a > 0",
-      "b. a < 0",
-      "c. b < 0",
-      "d. c < 0"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
-    "jawaban": "b"
+    "jawaban": "a"
   },
   {
-    "pertanyaan": "Volume bola r = 7 ...",
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
     "opsi": [
-      "a. 1440",
-      "b. 1437.33",
-      "c. 1450",
-      "d. 1442"
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
     ],
-    "jawaban": "b"
+    "jawaban": "c"
   },
   {
-    "pertanyaan": "(4x² - 9) / (2x - 3) = ...",
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
     "opsi": [
-      "a. 2x + 3",
-      "b. 2x - 3",
-      "c. 2x + 1.5",
-      "d. Tak tentu"
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
+    ],
+    "jawaban": "a"
+  },
+  {
+    "pertanyaan": "Rata-rata 8 data adalah 72. Jika satu data dihilangkan, rata-rata menjadi 70. Nilai data yang dihilangkan adalah ...",
+    "opsi": [
+      "a. 76",
+      "b. 78",
+      "c. 88",
+      "d. 90"
+    ],
+    "jawaban": "c"
+  },
+  {
+    "pertanyaan": "Jika simpangan baku sebuah data adalah 0, maka ...",
+    "opsi": [
+      "a. Data seragam",
+      "b. Data tidak memiliki rata-rata",
+      "c. Data memiliki nilai negatif",
+      "d. Data memiliki banyak modus"
     ],
     "jawaban": "a"
   }
 ];
 
-    let current = 0;
-    let score = 0;
-    let jawabanPeserta = new Array(soalData.length).fill(null);
-    let timer;
-
-    function startQuiz() {
-      if (localStorage.getItem("sudahUjian") === "true") {
-        alert("Anda sudah menyelesaikan ujian ini.");
-        return;
-      }
-      const nama = document.getElementById("namaPeserta").value.trim();
-      const kode = document.getElementById("kodePeserta").value.trim();
-      if (!nama || !kode) {
-        alert("Harap isi nama dan kode peserta terlebih dahulu.");
-        return;
-      }
-      document.getElementById("dispNama").textContent = nama;
-      document.getElementById("dispKode").textContent = kode;
-      document.getElementById("startArea").classList.add("hidden");
-      document.getElementById("quizContainer").classList.remove("hidden");
-      buatNavigasiSoal();
-      tampilkanSoal();
-      mulaiTimer(100 * 60);
-    }
-
-    function buatNavigasiSoal() {
-      const nav = document.getElementById("soalNav");
-      for (let i = 0; i < soalData.length; i++) {
-        let btn = document.createElement("button");
-        btn.textContent = i + 1;
-        btn.onclick = function() {
-          simpanJawaban();
-          current = i;
-          tampilkanSoal();
-        };
-        nav.appendChild(btn);
-      }
-    }
-
-    function tampilkanSoal() {
-      const box = document.getElementById("soalBox");
-      const data = soalData[current];
-      let html = `<p><strong>${current + 1}. ${data.pertanyaan}</strong></p>`;
-      data.opsi.forEach((opsi) => {
-        const val = opsi.split('.')[0].trim().toLowerCase();
-        const checked = jawabanPeserta[current] === val ? "checked" : "";
-        html += `<label><input type="radio" name="jawaban" value="${val}" ${checked}> ${opsi}</label>`;
-      });
-      box.innerHTML = html;
-    }
-
-    function simpanJawaban() {
-      const pilihan = document.querySelector('input[name="jawaban"]:checked');
-      if (pilihan) {
-        jawabanPeserta[current] = pilihan.value;
-      }
-    }
-
-    function nextSoal() {
-      simpanJawaban();
-      if (current < soalData.length - 1) {
-        current++;
-        tampilkanSoal();
-      } else {
-        if (confirm("Apakah Anda yakin ingin mengirim jawaban sekarang?")) {
-          kirimJawaban();
-        }
-      }
-    }
-
-    function mulaiTimer(durasi) {
-      let waktu = durasi;
-      timer = setInterval(function() {
-        let menit = Math.floor(waktu / 60);
-        let detik = waktu % 60;
-        document.getElementById("timeDisplay").textContent =
-          `${menit}:${detik < 10 ? '0' : ''}${detik}`;
-        if (--waktu < 0) {
-          clearInterval(timer);
-          kirimJawaban();
-        }
-      }, 1000);
-    }
-
     function kirimJawaban() {
-      simpanJawaban();
-      let hasil = soalData.map((s, i) => {
-        return `${i + 1}. ${s.pertanyaan}\nJawaban: ${jawabanPeserta[i] || '-'}\n`;
-      }).join("\n");
-
-      let body = `Nama: ${document.getElementById("namaPeserta").value}\n` +
-                 `Kode: ${document.getElementById("kodePeserta").value}\n\n` +
-                 hasil;
-
-      localStorage.setItem("sudahUjian", "true");
-      window.location.href = `mailto:egisafitri@darmajaya.ac.id?subject=Hasil Ujian CAT Statistika&body=${encodeURIComponent(body)}`;
-      document.getElementById("quizContainer").classList.add("hidden");
-      document.getElementById("thankYou").classList.remove("hidden");
+      let hasil = soalData.map((s, i) => `${i+1}. ${s.pertanyaan}\nJawaban: -\n`).join("\n");
+      let body = `Nama: Dummy\nKode: 12345\n\n${hasil}`;
+      window.location.href = "mailto:egisafitri@darmajaya.ac.id?subject=Hasil Ujian CAT 40 Soal&body=" + encodeURIComponent(body);
     }
   </script>
-
-<video id="cam" autoplay muted style="position:fixed; top:10px; right:10px; width:200px; border:2px solid #00d1b2;"></video>
-<script>
-  let stream, recorder, recordedChunks = [];
-
-  async function startCamera() {
-    try {
-      stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-      document.getElementById("cam").srcObject = stream;
-      recorder = new MediaRecorder(stream);
-      recorder.ondataavailable = e => recordedChunks.push(e.data);
-      recorder.start();
-    } catch (e) {
-      alert("Gagal mengakses kamera.");
-    }
-  }
-
-  function stopCamera() {
-    if (stream) stream.getTracks().forEach(track => track.stop());
-    if (recorder && recorder.state === "recording") recorder.stop();
-  }
-
-  const originalStartQuiz = startQuiz;
-  startQuiz = function() {
-    startCamera();  // Aktifkan kamera sebelum memulai
-    originalStartQuiz();
-  };
-
-  const originalKirimJawaban = kirimJawaban;
-  kirimJawaban = function() {
-    stopCamera();  // Stop kamera dan rekaman
-    originalKirimJawaban();
-  };
-</script>
-
-
-<script>
-  let tabOut = 0;
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) {
-      tabOut++;
-      alert("Jangan pindah tab! Peringatan ke-" + tabOut);
-      if (tabOut >= 3) {
-        alert("Ujian dihentikan karena terlalu sering berpindah tab.");
-        stopCamera();
-        document.getElementById("quizContainer").classList.add("hidden");
-        document.getElementById("thankYou").classList.remove("hidden");
-        localStorage.setItem("sudahUjian", "true");
-      }
-    }
-  });
-</script>
-
-
-<script>
-  const originalStartQuiz = startQuiz;
-  startQuiz = function() {
-    const nama = document.getElementById("namaPeserta").value.trim().toLowerCase();
-    const kode = document.getElementById("kodePeserta").value.trim();
-    const key = "peserta_ujian";
-    const pesertaData = JSON.parse(localStorage.getItem(key) || "[]");
-
-    if (!nama || !kode) {
-      alert("Harap isi nama dan kode peserta terlebih dahulu.");
-      return;
-    }
-
-    const sudahAda = pesertaData.some(p => p.nama === nama && p.kode === kode);
-    if (sudahAda) {
-      alert("Anda sudah menyelesaikan ujian ini.");
-      return;
-    }
-
-    pesertaData.push({ nama, kode });
-    localStorage.setItem(key, JSON.stringify(pesertaData));
-    originalStartQuiz();
-  };
-</script>
 </body>
 </html>
